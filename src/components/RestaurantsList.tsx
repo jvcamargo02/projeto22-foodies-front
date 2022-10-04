@@ -4,29 +4,16 @@ import animationDataFoodieLogo from "../assets/foodiesLogo.json";
 /* import * as preLoadStyle from "./StyleComponents/preLoadStyle" */
 
 interface IPropType {
-    display: boolean
+    display: boolean;
 }
 
-function PreLoader (props: IPropType) {
-    const foodieLogoDefaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationDataFoodieLogo,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
+function PreLoader(props: IPropType) {
 
-    return (
-        <Container> 
-            
-
-        </Container>
-    );
-};
+    return <Container></Container>;
+}
 
 export default PreLoader;
 
-export const Container = styled.section<{display?: boolean}>`
-    display: ${({display}) => display  ? "none" : "inherit"}
-`
+export const Container = styled.section<{ display?: boolean }>`
+    display: ${({ display }) => (display ? "none" : "inherit")};
+`;

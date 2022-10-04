@@ -7,10 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { motion } from "framer-motion";
 
-import animationDataFoodieLogo from "../assets/foodiesLogo.json";
-/* import * as preLoadStyle from "./StyleComponents/preLoadStyle" */
 
 interface Props {
     image: any;
@@ -41,14 +38,7 @@ function Header(props: Props) {
     };
 
     return (
-        <Container
-            initial={{ opacity: 0 }}
-            animate={{
-                opacity: 1,
-            }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "linear", duration: 3, delay: 10 }}
-        >
+        <Container>
             <Lottie options={foodieLogoDefaultOptions} height={60} width={120} style={style} />
             <nav>
                 <ul>
@@ -86,12 +76,12 @@ function Header(props: Props) {
 
 export default Header;
 
-export const Container = styled(motion.header)`
+export const Container = styled.header`
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     a {
         text-decoration: none;
