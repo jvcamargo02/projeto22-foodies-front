@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Divider, Chip } from "@mui/material";
 import useSWR from "swr";
 
-import * as indexStyle from "./stylePages/_indexStyle";
+import * as indexStyle from "../styles/stylePages/_indexStyle";
 import Header from "../components/Header";
 import PreLoader from "../components/PreLoad";
 import foodiesLogo from "../assets/foodiesLogo.json";
