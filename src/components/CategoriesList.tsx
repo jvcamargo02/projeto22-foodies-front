@@ -8,16 +8,16 @@ interface Props {
 
 function CategoriesList({ category }: { category: Props }) {
     return (
-        <Container whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} whileTap={{ scale: 0.9 }}>
+        <Container whileHover={{ scale: 1.05, transition: { duration: 0.3 }}} whileTap={{ scale: 0.9 }}>
             <section>
                 <img src={category.image} />
             </section>
 
             <p>{category.name}</p>
+            
         </Container>
     );
 }
-
 export default CategoriesList;
 
 export const Container = styled(motion.li)`

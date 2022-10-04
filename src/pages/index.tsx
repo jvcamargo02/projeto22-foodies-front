@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPropsContext } from "next";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Divider, Chip } from "@mui/material";
 import useSWR from "swr";
 
@@ -51,9 +51,11 @@ const Home = ({ response }: { response: Props[] }) => {
                             <Chip label="CATEGORIES" />
                         </Divider>
                         <ul>
-                            {categories.map((category) => {
-                                return <CategoriesList category={category} />;
-                            })}
+                            {categories.map((category, index) => {
+                                return (<React.Fragment key={index}>
+                                    <CategoriesList category={category} />
+                                    </React.Fragment>
+                            )})}
                         </ul>
                     </indexStyle.Categories>
                 </main>
@@ -75,7 +77,7 @@ const Home = ({ response }: { response: Props[] }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
-    
+
     let response = [
         {
             restaurants: [
