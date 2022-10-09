@@ -39,15 +39,11 @@ next-env.d.ts
 
 .history/
 
-api/
-api
 json
 pagina1
 users
-src/incremental-generation
+src/incremental-generation.tsx
 src/server-side-render
 src/static-generation
-
-src/utils
 
 api.http

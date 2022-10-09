@@ -18,7 +18,7 @@ export const Container = styled.section`
         display: none;
     }
 
-    .cityBox {
+    .city-box {
         margin-bottom: 25px;
         color: rgba(43, 41, 41, 0.5);
 

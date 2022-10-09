@@ -34,7 +34,7 @@ export const Container = styled(motion.section)<{ isOpen?: boolean }>`
         }
     }
 
-    .isOpen {
+    .is-open {
         display: flex;
         align-items: center;
         justify-content: center;

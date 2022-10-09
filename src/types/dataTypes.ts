@@ -13,3 +13,10 @@ export interface IRestaurant {
     openingHour: string;
 }
 
+export interface IGiftCards {
+    name: string;
+    image: string;
+    isOpen: boolean;
+    description: string;
+    code: string
+}

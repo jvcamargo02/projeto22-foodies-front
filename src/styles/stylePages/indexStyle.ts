@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { ModalBody } from "@chakra-ui/react";
 
 export const Container = styled(motion.section)<{ display?: boolean }>`
     display: ${({ display }) => (display ? "inherit" : "none")};

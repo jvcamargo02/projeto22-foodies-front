@@ -7,10 +7,12 @@ export const Container = styled.header`
     align-items: center;
     justify-content: space-between;
 
-    a {
+    button {
         text-decoration: none;
         color: #2b2929;
         font-weight: 500;
+        border: none;
+        box-shadow: none;
     }
 
     nav {

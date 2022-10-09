@@ -27,7 +27,7 @@ export const Aside = (props: Props) => {
 
     return (
         <Container>
-            <section className="cityBox">
+            <section className="city-box">
                 <Divider variant="middle">
                     <Chip label="CITY" />
                 </Divider>

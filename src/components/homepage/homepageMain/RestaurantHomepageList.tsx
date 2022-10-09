@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import useSWR, { useSWRConfig } from "swr";
 import { Divider } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { Container } from "./restaurantsHomePageListStyle";
 import { IRestaurant } from "../../../types/dataTypes";
@@ -13,7 +14,7 @@ interface Props {}
 
 export const RestaurantHomepageList = (props: Props) => {
     const [restaurants, setRestaurants] = useState<IRestaurant[]>([]);
-    const [countPage, setCountPages] = useState(1)
+    const [countPage, setCountPages] = useState(1);
     const router = useRouter();
     const { page = 1 } = router.query;
     const { cache } = useSWRConfig();
@@ -22,13 +23,29 @@ export const RestaurantHomepageList = (props: Props) => {
         refreshInterval: 10000,
         onSuccess: (data, key, config) => {
             setRestaurants(data?.data);
-            setCountPages(+(data?.total/10).toFixed())
+            setCountPages(+(data?.total / 10).toFixed());
         },
     });
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        router.push(`?page=${value}`)
+        router.push(`?page=${value}`);
     };
+
+    if (restaurants.length === 0 && data === undefined) {
+        return (
+            <Container>
+                <CircularProgress />
+            </Container>
+        );
+    }
+
+    if (restaurants.length === 0 && data !== undefined) {
+        return (
+            <Container>
+                <h6>There are no restaurants registered in your location yet.</h6>
+            </Container>
+        );
+    }
 
     return (
         <Container>

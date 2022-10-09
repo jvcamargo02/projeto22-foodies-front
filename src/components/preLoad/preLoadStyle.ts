@@ -26,6 +26,10 @@ z-index: 2;
 export const Title = styled.h1`
 color: #2b2929;
 font-size: 90px;
+
+    @media(max-width: 500px) {
+        font-size: 4rem;
+    }
 `;
 
 export const Logo = styled(Lottie)`

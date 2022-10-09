@@ -1,12 +1,11 @@
 import * as React from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
 import { Container } from "@mui/material";
-import { ChakraProvider, theme } from "@chakra-ui/react";
-import styled from "styled-components";
+import { CacheProvider, EmotionCache } from "@emotion/react";
 
 import Theme from "../theme";
 import createEmotionCache from "../createEmotionCache";
@@ -28,17 +27,14 @@ export default function MyApp(props: MyAppProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <title>Foodies</title>
             </Head>
-            
+
             <ThemeProvider theme={Theme}>
                 <CssBaseline />
                 <GlobalStyle />
                 <Container>
-                <ChakraProvider theme={theme}>
-                        <Component {...pageProps} />
-                        </ChakraProvider>
+                    <Component {...pageProps} />
                 </Container>
             </ThemeProvider>
-            
         </CacheProvider>
     );
 }

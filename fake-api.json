@@ -275,7 +275,7 @@
     "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
     "type": "Brazilian Food",
     "city": "São Paulo",
-    "isOpen": true,
+    "isOpen": false,
     "closeHour": "17:00",
     "openingHour": "10:30"
 },
@@ -405,6 +405,37 @@
     "closeHour": "17:00",
     "openingHour": "10:30"
 }
-]
+],
+"gift-cards": [{
+  "name": "Terraço Mineiro17",
+  "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+  "isOpen": true,
+  "description": "10% de desconto",
+  "code": "123456"
+},{
+  "name": "Terraço Mineiro17",
+  "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+  "isOpen": true,
+  "description": "10% de desconto",
+  "code": "123456"
+},{
+  "name": "Terraço Mineiro17",
+  "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+  "isOpen": true,
+  "description": "10% de desconto",
+  "code": "123456"
+},{
+  "name": "Terraço Mineiro17",
+  "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+  "isOpen": true,
+  "description": "10% de desconto",
+  "code": "123456"
+},{
+  "name": "Terraço Mineiro17",
+  "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+  "isOpen": true,
+  "description": "10% de desconto",
+  "code": "123456"
+}]
   
 }

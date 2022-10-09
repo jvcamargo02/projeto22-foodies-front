@@ -24,7 +24,7 @@ function RestaurantList({ restaurant }: Props) {
 
                 <p>{restaurant.type}</p>
             </section>
-            <section className="isOpen">
+            <section className="is-open">
                 <h6>{restaurant.isOpen ? "Open" : "Closed"}</h6>
                 <p>
                     <span>{restaurant.openingHour}</span> - <span>{restaurant.closeHour}</span>
