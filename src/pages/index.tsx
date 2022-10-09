@@ -1,25 +1,25 @@
 import { GetStaticProps, GetStaticPropsContext } from "next";
-import React, { useState } from "react";
+import React from "react";
 import { Divider, Chip } from "@mui/material";
-import useSWR from "swr";
 
-import * as indexStyle from "../styles/stylePages/_indexStyle";
-import Header from "../components/Header";
-import PreLoader from "../components/PreLoad";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import useSWR, { useSWRConfig } from "swr";
+import { useRouter } from "next/router";
+
+import { IRestaurant, ICategories } from "../types/dataTypes";
+import { fetcher } from "../utils/fetcher";
+import * as indexStyle from "../styles/stylePages/indexStyle";
+import Header from "../components/header/Header";
+import PreLoader from "../components/preLoad/PreLoad";
 import foodiesLogo from "../assets/foodiesLogo.json";
-import CategoriesList from "../components/CategoriesList";
-
-interface IRestaurant {
-    name: string;
-    image: string;
-    type: string;
-    city: string;
-}
-
-interface ICategories {
-    name: string;
-    image: string;
-}
+import CategoriesList from "../components/categories/CategoriesList";
+import LoginModal from "../components/modals/LoginModal";
+import RestaurantList from "../components/restaurants/RestaurantsList";
+import { NextResponse } from "next/server";
+import { Aside } from "../components/homepage/homepageAside/Aside";
+import { RestaurantHomepageList } from "../components/homepage/homepageMain/RestaurantHomepageList";
 
 interface Props {
     restaurants: IRestaurant[];
@@ -27,16 +27,16 @@ interface Props {
 }
 
 const Home = ({ response }: { response: Props[] }) => {
-    const categories = response[0].categories;
-
-    const [preLoadView, setPreLoadView] = useState(false);
-
+    const restaurants: IRestaurant[] | [] = [];
+    const [preLoadView, setPreLoadView] = React.useState(false);
+    const [password, setPassword] = React.useState("");
+    
     setTimeout(() => setPreLoadView(true), 10000);
 
     return (
         <>
             <PreLoader display={preLoadView} />
-            <indexStyle.Container
+            <indexStyle.Container display={preLoadView}
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: 1,
@@ -46,29 +46,9 @@ const Home = ({ response }: { response: Props[] }) => {
             >
                 <Header image={foodiesLogo} />
                 <main>
-                    <indexStyle.Categories>
-                        <Divider variant="middle">
-                            <Chip label="CATEGORIES" />
-                        </Divider>
-                        <ul>
-                            {categories.map((category, index) => {
-                                return (<React.Fragment key={index}>
-                                    <CategoriesList category={category} />
-                                    </React.Fragment>
-                            )})}
-                        </ul>
-                    </indexStyle.Categories>
+                    <Aside />
+                    <RestaurantHomepageList />
                 </main>
-
-                {/* {
-                response.map((restaurant) => {
-                    return(
-                    <> 
-                    <p>{restaurant.name}</p>
-                        <p>{restaurant.image}</p>
-                    <p>{restaurant.type}</p> 
-                    </>)
-                }) */}
             </indexStyle.Container>
         </>
     );
@@ -76,37 +56,3 @@ const Home = ({ response }: { response: Props[] }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
-
-    let response = [
-        {
-            restaurants: [
-                {
-                    name: "Terraço Mineiro",
-                    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/5bdee7126645185.62a74d80b2a53.jpg",
-                    type: "Brazilian Food",
-                    city: "São Paulo",
-                },
-            ],
-
-            categories: [
-                {
-                    name: "Coffee Shop",
-                    image: "https://aux.iconspalace.com/uploads/coffee-icon-256.png",
-                },
-                {
-                    name: "Brazilian Food",
-                    image: "http://cdn.onlinewebfonts.com/svg/img_415179.png",
-                },
-                {
-                    name: "Fast-Food",
-                    image: "https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/food-icon.png",
-                },
-            ],
-        },
-    ];
-    return {
-        props: { response },
-        revalidate: 10,
-    };
-};

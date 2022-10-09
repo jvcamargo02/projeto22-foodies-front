@@ -176,5 +176,235 @@
       "name": "usuario4",
       "id": 43
     }
-  ]
+  ],
+  "categories" : [
+    {
+      "name": "Coffee Shop",
+      "image": "https://aux.iconspalace.com/uploads/coffee-icon-256.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Fast-Food",
+      "image": "https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/food-icon.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  },
+  {
+      "name": "Brazilian Food",
+      "image": "http://cdn.onlinewebfonts.com/svg/img_415179.png"
+  }
+],
+"restaurants" : [
+  {
+    "name": "Terraço Mineiro1",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": false,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro2",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": false,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro3",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro4",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro5",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro6",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro7",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro8",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro9",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro10",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro11",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro12",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro13",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro14",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro15",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro16",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+},
+{
+    "name": "Terraço Mineiro17",
+    "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
+    "type": "Brazilian Food",
+    "city": "São Paulo",
+    "isOpen": true,
+    "closeHour": "17:00",
+    "openingHour": "10:30"
+}
+]
+  
 }

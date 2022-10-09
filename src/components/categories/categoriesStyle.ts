@@ -1,25 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-interface Props {
-    name: string;
-    image: string;
-}
-
-function CategoriesList({ category }: { category: Props }) {
-    return (
-        <Container whileHover={{ scale: 1.05, transition: { duration: 0.3 }}} whileTap={{ scale: 0.9 }}>
-            <section>
-                <img src={category.image} />
-            </section>
-
-            <p>{category.name}</p>
-            
-        </Container>
-    );
-}
-export default CategoriesList;
-
 export const Container = styled(motion.li)`
     display: flex;
     align-items: center;
@@ -27,7 +8,7 @@ export const Container = styled(motion.li)`
     box-sizing: border-box;
     padding: 10px;
     gap: 10px;
-    width: fit-content;
+    min-width: 200px;
     max-width: 300px;
 
     section {
@@ -50,5 +31,11 @@ export const Container = styled(motion.li)`
     p {
         font-weight: 500;
         font-size: 15px;
+        filter: invert(0.2);
+    }
+
+    @media(max-width: 800px) {
+        flex-direction: column;
+        min-width: 130px;
     }
 `;
