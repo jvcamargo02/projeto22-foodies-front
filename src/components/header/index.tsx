@@ -11,21 +11,25 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 
-import { GiftCardsModal } from "../modals/giftCardsModal/GiftCardsModal";
+import { GiftCardsModal } from "../modals/giftCardsModal";
 
 import { Container } from "./headerStyle";
-import { SignUpModal } from "../modals/signUpModal/SignUpModal";
+import { SignUpModal } from "../modals/signUpModal";
+import { LoginModal } from "../modals/loginModal/index";
 
 interface Props {
     image: any;
+    homepage: boolean;
+    backgroundColor?: string;
 }
 
 function Header(props: Props) {
     const [searchBoxValue, setSearchBoxValue] = useState("");
     const [giftCardModalVisible, setGiftCardModalVisible] = useState(false);
+    const [loginModalVisible, setLoginModalVisible] = useState(false);
     const [signUpModalVisible, setSignUpModalVisible] = useState(false);
     const signUpSteps = [" Your Info", "Your Main Address"];
-    const [actualSignUpStep, setActualSignUpStep] = useState(0)
+    const [actualSignUpStep, setActualSignUpStep] = useState(0);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchBoxValue(e.target.value);
     };
@@ -49,8 +53,8 @@ function Header(props: Props) {
 
     return (
         <>
-            <Container>
-                <Lottie options={foodieLogoDefaultOptions} height={60} width={120} style={style} />
+            <Container backgroundColor={props.backgroundColor}>
+                {props.homepage ? <Lottie options={foodieLogoDefaultOptions} height={60} width={120} style={style} /> : <img src={props.image} />}
                 <nav>
                     <ul>
                         <li>
@@ -63,7 +67,7 @@ function Header(props: Props) {
                             <button onClick={() => setSignUpModalVisible(true)}>Sign Up</button>
                         </li>
                         <li>
-                            <button>Login</button>
+                            <button onClick={() => setLoginModalVisible(true)}>Login</button>
                         </li>
                     </ul>
                     <Paper
@@ -94,7 +98,7 @@ function Header(props: Props) {
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
                 <br />
-                <Stepper activeStep={actualSignUpStep} alternativeLabel >
+                <Stepper activeStep={actualSignUpStep} alternativeLabel>
                     {signUpSteps.map((label) => (
                         <Step key={label} color="info">
                             <StepLabel>{label}</StepLabel>
@@ -102,7 +106,18 @@ function Header(props: Props) {
                     ))}
                 </Stepper>
 
-                <SignUpModal signUpModalVisible={signUpModalVisible} setSignUpModalVisible={setSignUpModalVisible} actualSignUpStep={actualSignUpStep} setActualSignUpStep={setActualSignUpStep} />
+                <SignUpModal
+                    signUpModalVisible={signUpModalVisible}
+                    setSignUpModalVisible={setSignUpModalVisible}
+                    actualSignUpStep={actualSignUpStep}
+                    setActualSignUpStep={setActualSignUpStep}
+                />
+            </Modal>
+            <Modal show={loginModalVisible} onHide={() => setLoginModalVisible(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <LoginModal loginModalVisible={loginModalVisible} setLoginModalVisible={setLoginModalVisible} />
             </Modal>
         </>
     );

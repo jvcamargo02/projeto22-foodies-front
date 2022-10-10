@@ -6,7 +6,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 
 import { Container } from "./asideStyle";
 import { fetcher } from "../../../utils/fetcher";
-import CategoriesList from "../../categories/CategoriesList";
+import CategoriesList from "../../categories";
 import { ICategories } from "../../../types/dataTypes";
 
 interface Props {}

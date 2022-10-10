@@ -7,3 +7,7 @@ export const http = axios.create({
 export const externalHttp = axios.create({
   baseURL: process.env.EXTERNAL_API_URL,
 });
+
+export const findCepHttp = axios.create({
+  baseURL: "https://viacep.com.br/ws/",
+});

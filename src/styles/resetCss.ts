@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ backgroundColor?: string }>`
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -30,7 +30,10 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
     font-family: "Roboto", sans-serif;
-    background-color: #f0f0f0;
+    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "#f0f0f0"};
+	scroll-behavior: smooth;
+
+	
 }
 ol, ul {
 	list-style: none;
@@ -58,6 +61,23 @@ table {
     position: relative;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
-`
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+`;

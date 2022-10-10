@@ -179,6 +179,7 @@
   ],
   "categories" : [
     {
+      "id": 1,
       "name": "Coffee Shop",
       "image": "https://aux.iconspalace.com/uploads/coffee-icon-256.png"
   },
@@ -259,16 +260,18 @@
     "city": "São Paulo",
     "isOpen": false,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 0
 },
 {
     "name": "Terraço Mineiro2",
     "image": "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/0d838aa1-5c6f-4c98-b83f-c1fc5d69dfc5/202103271542_y6nN_i.png",
     "type": "Brazilian Food",
     "city": "São Paulo",
-    "isOpen": false,
+    "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 1
 },
 {
     "name": "Terraço Mineiro3",
@@ -277,7 +280,8 @@
     "city": "São Paulo",
     "isOpen": false,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 2
 },
 {
     "name": "Terraço Mineiro4",
@@ -286,7 +290,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 3
 },
 {
     "name": "Terraço Mineiro5",
@@ -295,7 +300,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 4
 },
 {
     "name": "Terraço Mineiro6",
@@ -304,7 +310,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 5
 },
 {
     "name": "Terraço Mineiro7",
@@ -313,7 +320,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 6
 },
 {
     "name": "Terraço Mineiro8",
@@ -322,7 +330,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 7
 },
 {
     "name": "Terraço Mineiro9",
@@ -331,7 +340,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 8
 },
 {
     "name": "Terraço Mineiro10",
@@ -340,7 +350,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 9
 },
 {
     "name": "Terraço Mineiro11",
@@ -349,7 +360,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 10
 },
 {
     "name": "Terraço Mineiro12",
@@ -358,7 +370,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 11
 },
 {
     "name": "Terraço Mineiro13",
@@ -367,7 +380,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 12
 },
 {
     "name": "Terraço Mineiro14",
@@ -376,7 +390,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 13
 },
 {
     "name": "Terraço Mineiro15",
@@ -385,7 +400,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 14
 },
 {
     "name": "Terraço Mineiro16",
@@ -394,7 +410,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 15
 },
 {
     "name": "Terraço Mineiro17",
@@ -403,7 +420,8 @@
     "city": "São Paulo",
     "isOpen": true,
     "closeHour": "17:00",
-    "openingHour": "10:30"
+    "openingHour": "10:30",
+    "id": 16
 }
 ],
 "gift-cards": [{
@@ -436,6 +454,39 @@
   "isOpen": true,
   "description": "10% de desconto",
   "code": "123456"
-}]
+}],
+"menu": [
+  {
+    "id": 1,
+    "restaurantId": 1,
+    "backgroundColor": "#E4D5D3",
+    "menu": [{
+      "id": 1,
+      "name": "Parmegiana de Frango1",
+      "image": "https://iili.io/Q4vtgs.png",
+      "description": "Delicioso filé de carne ou de frango, frito com farinha panko e coberto com nosso molho artesanal e parmesão, acompanhado de arroz e uma variação de batata.",
+      "price": "29.90"
+    },
+    {
+      "id": 2,
+      "name": "Parmegiana de Frango1",
+      "image": "https://iili.io/Q4vtgs.png",
+      "description": "Delicioso filé de carne ou de frango, frito com farinha panko e coberto com nosso molho artesanal e parmesão, acompanhado de arroz e uma variação de batata.",
+      "price": "29.90"
+    },{
+      "id": 3,
+      "name": "Parmegiana de Frango1",
+      "image": "https://iili.io/Q4vtgs.png",
+      "description": "Delicioso filé de carne ou de frango, frito com farinha panko e coberto com nosso molho artesanal e parmesão, acompanhado de arroz e uma variação de batata.",
+      "price": "29.90"
+    },{
+      "id": 4,
+      "name": "Parmegiana de Frango1",
+      "image": "https://iili.io/Q4vtgs.png",
+      "description": "Delicioso filé de carne ou de frango, frito com farinha panko e coberto com nosso molho artesanal e parmesão, acompanhado de arroz e uma variação de batata.",
+      "price": "29.90"
+    }]
+  }
+]
   
 }

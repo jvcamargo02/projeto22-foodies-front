@@ -8,7 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Container } from "./restaurantsHomePageListStyle";
 import { IRestaurant } from "../../../types/dataTypes";
 import { fetcher } from "../../../utils/fetcher";
-import RestaurantList from "../../restaurants/RestaurantsList";
+import RestaurantList from "../../restaurants";
 
 interface Props {}
 

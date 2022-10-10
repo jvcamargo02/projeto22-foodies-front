@@ -10,6 +10,7 @@ export const Container = styled(motion.section)<{ isOpen?: boolean }>`
     box-sizing: border-box;
     padding: 0 10px;
     cursor: ${(props) => (props.isOpen ? "pointer" : "not-allowed")};
+    pointer-events: ${(props) => (props.isOpen ? "all" : "none")};;
 
     p {
         color: rgba(43, 41, 41, 0.5);

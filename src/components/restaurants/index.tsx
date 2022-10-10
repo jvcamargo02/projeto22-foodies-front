@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { useRouter } from "next/router";
 
 import { IRestaurant } from "../../types/dataTypes";
 import { Container } from "./restaurantsListStyle"
@@ -8,7 +8,7 @@ interface Props {
 }
 
 function RestaurantList({ restaurant }: Props) {
-
+    const router = useRouter();
     const variants = {
         scale: restaurant.isOpen ? 1.05 : 1,
         transition: restaurant.isOpen ? { duration: 0.3 } : {  }
@@ -16,7 +16,7 @@ function RestaurantList({ restaurant }: Props) {
 
 
     return (
-        <Container isOpen={restaurant.isOpen} whileHover={variants} whileTap={restaurant.isOpen ? { scale: 0.9 } : { scale: 1 }}>
+        <Container isOpen={restaurant.isOpen} whileHover={variants} whileTap={restaurant.isOpen ? { scale: 0.9 } : { scale: 1 }} onClick={() => router.push(`/restaurant/${restaurant.id}`)}>
             {" "}
             <img src={restaurant.image} alt={restaurant.name} title={restaurant.name} />
             <section className="name">

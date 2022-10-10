@@ -6,7 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { fetcher } from "../../../utils/fetcher";
 import { Container } from "./giftCardModalStyle";
 import { IGiftCards } from "../../../types/dataTypes";
-import { GiftCard } from "../../GiftCard/GiftCard";
+import { GiftCard } from "../../DiscountCard";
 
 fetcher;
 

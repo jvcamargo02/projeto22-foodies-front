@@ -8,7 +8,7 @@ export const Container = styled(motion.section)<{ display?: boolean }>`
         display: flex;
         gap: 40px;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 90px;
     }
 
 

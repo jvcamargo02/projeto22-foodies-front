@@ -4,6 +4,7 @@ export interface ICategories {
 }
 
 export interface IRestaurant {
+    id: number;
     name: string;
     image: string;
     type: string;
@@ -18,5 +19,5 @@ export interface IGiftCards {
     image: string;
     isOpen: boolean;
     description: string;
-    code: string
+    code: string;
 }

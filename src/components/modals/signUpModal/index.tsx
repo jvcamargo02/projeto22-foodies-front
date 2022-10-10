@@ -1,9 +1,13 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { useRouter } from "next/router";
+import useSWR, { useSWRConfig } from "swr";
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import SearchIcon from "@mui/icons-material/Search";
 
 import { Container, NextButton, BackButton, CepButton, Input } from "./signUpModalStyle";
+import { UserContext } from "../../../contexts/userContext";
+import { fetcher } from "../../../utils/fetcher";
 
 interface Props {
     signUpModalVisible: boolean;
@@ -26,8 +30,7 @@ export function SignUpModal(props: Props) {
 }
 
 function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dispatch<SetStateAction<number>> }) {
-    const [name, setName] = React.useState("");
-    const [email, setEmail] = React.useState("");
+    const context = React.useContext(UserContext);
     const [password, setPassword] = React.useState("");
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -41,8 +44,8 @@ function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dis
                 <TextField
                     id="name"
                     label="Name"
-                    value={name}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                    value={context?.name}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setName(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -53,8 +56,8 @@ function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dis
                     id="email"
                     label="Email"
                     type="email"
-                    value={email}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                    value={context?.email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setEmail(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -83,13 +86,23 @@ function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dis
 }
 
 function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dispatch<SetStateAction<number>> }) {
-    const [cep, setCep] = React.useState("");
-    const [address, setAddress] = React.useState("");
-    const [city, setCity] = React.useState("");
-    const [number, setNumber] = React.useState("");
-    const [state, setState] = React.useState("");
+    const context = React.useContext(UserContext);
+    const router = useRouter();
+    const { cache } = useSWRConfig();
+    const [cep, setCep] = React.useState('')
     const [nextButtonContent, setNextButtonContent] = React.useState<any>("Next");
+    const [disabledForm, setDisabledForm] = React.useState(true)
     const [cepButtonContent, setCepButtonContent] = React.useState<any>(<SearchIcon />);
+    const { data, mutate, error } = useSWR(router.isReady ? `findcep?cep=${(context?.cep)?.replace('-', '')}` : null, fetcher, {
+        onSuccess: (data, key, config) => {
+            context?.setState(data.data.uf)
+            context?.setAddress(data.data.logradouro)
+            context?.setCity(data.data.localidade)
+            setCepButtonContent(<SearchIcon />)
+            setDisabledForm(false)
+            console.log(disabledForm)
+            },
+        });
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -99,8 +112,7 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
     function findCep(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setCepButtonContent(<CircularProgress size={10} />);
-
-        //.then
+        context?.setCep(cep)
     }
 
     return (
@@ -125,8 +137,8 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     id="address"
                     label="Address"
                     type="text"
-                    value={address}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddress(e.target.value)}
+                    value={context?.address}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setAddress(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -138,8 +150,8 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     id="Number"
                     label="Number"
                     type="number"
-                    value={number}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNumber(e.target.value)}
+                    value={context?.number}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setNumber(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -149,8 +161,8 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     id="city"
                     label="City"
                     type="text"
-                    value={city}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
+                    value={context?.city}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setCity(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -161,8 +173,8 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     id="state"
                     label="State"
                     type="text"
-                    value={state}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setState(e.target.value)}
+                    value={context?.state}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => context?.setState(e.target.value)}
                     margin="normal"
                     variant="standard"
                     color="info"
@@ -174,7 +186,7 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     Go Back
                 </BackButton>
 
-                <NextButton type="submit" variant="dark" disabled>
+                <NextButton type="submit" variant="dark" disabled={disabledForm}>
                     {nextButtonContent}
                 </NextButton>
             </form>
