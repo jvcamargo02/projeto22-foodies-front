@@ -19,7 +19,7 @@ export default function LoginPortal() {
         <Container>
             <Lottie options={foodieLogoDefaultOptions} height={150} width={300} style={{ pointerEvents: "none" }} />
             <LoginModal loginModalVisible={false} setLoginModalVisible={() => false} />
-            <Link href="/portal/signup"><a>Don't have an account? Sign Up</a></Link>
+            <Link href="/portal/signup"><a>{"Don't have an account? Sign Up"}</a></Link>
         </Container>
     );
 }
