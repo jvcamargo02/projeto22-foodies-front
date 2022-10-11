@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "react-bootstrap";
-
+import Image from "next/image";
 
 import { IGiftCards } from "../../types/dataTypes";
 import { Container, DiscountIconFloat } from "./giftCardStyle";
-DiscountIconFloat
+DiscountIconFloat;
 
 interface Props {
     giftCard: IGiftCards;

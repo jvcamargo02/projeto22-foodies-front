@@ -4,6 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import { Container, NextButton } from "./loginModalStyle"
 import { UserContext } from "../../../contexts/userContext";
+import { postFetcher } from "../../../utils/fetcher";
 
 interface Props {
     loginModalVisible: boolean;
@@ -15,9 +16,19 @@ export function LoginModal(props: Props) {
     const [password, setPassword] = React.useState("");
     const [buttonContent, setButtonContent] = React.useState<any>("Login")
 
-    function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setButtonContent(<CircularProgress size={15}/>)
+        
+        try {
+            await postFetcher("signInUser", { email: context?.email, password }).then((res) => {
+                console.log(res)
+                props.setLoginModalVisible(false);
+            });
+        } catch (e) {
+            setButtonContent("Try Again");
+            console.log(e);
+        }
     }
 
     return (

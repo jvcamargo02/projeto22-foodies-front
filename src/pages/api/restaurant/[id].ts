@@ -6,7 +6,6 @@ import { externalHttp } from "../../../utils/http";
 
 type Data = {
   dataRestaurant: IRestaurant
-  dataMenu: any
 };
 export default async function handler(
   req: NextApiRequest,
@@ -16,12 +15,9 @@ export default async function handler(
   const reqRestaurant = await externalHttp.get(
     `restaurants/${id}`
   );
-  const reqMenu = await externalHttp.get(
-    `menu/${id}`
-  );
   const data = {
     dataRestaurant: reqRestaurant.data,
-    dataMenu: reqMenu.data
+    dataMenu: reqRestaurant.data.menu?.MenuItem
   }
 
   res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate=59"); 

@@ -9,7 +9,6 @@ export default async function handler(
   res: NextApiResponse<ICategories>
 ){
   const { cep } = req.query
-  console.log(cep)
   const { data }: {data: ICategories, headers: AxiosResponseHeaders} = await findCepHttp.get(
     `${cep}/json/`
   );

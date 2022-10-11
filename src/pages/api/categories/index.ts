@@ -8,9 +8,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ICategories>
 ){
-
+  const { city } = req.query
   const { data }: {data: ICategories, headers: AxiosResponseHeaders} = await externalHttp.get(
-    `categories`
+    `categories?location=${city}`
   );
 
   res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate=59"); 

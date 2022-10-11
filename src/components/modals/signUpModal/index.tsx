@@ -7,31 +7,54 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { Container, NextButton, BackButton, CepButton, Input } from "./signUpModalStyle";
 import { UserContext } from "../../../contexts/userContext";
-import { fetcher } from "../../../utils/fetcher";
+import { fetcher, postFetcher } from "../../../utils/fetcher";
 
 interface Props {
     signUpModalVisible: boolean;
     setSignUpModalVisible: Dispatch<SetStateAction<boolean>>;
     actualSignUpStep: number;
     setActualSignUpStep: Dispatch<SetStateAction<number>>;
+    setLoginModalVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 export function SignUpModal(props: Props) {
+    const [password, setPassword] = React.useState("");
     switch (props.actualSignUpStep) {
         case 0:
-            return <UserInfoSignUpModal setActualSignUpStep={props.setActualSignUpStep} />;
+            return (
+                <UserInfoSignUpModal
+                    setActualSignUpStep={props.setActualSignUpStep}
+                    password={password}
+                    setPassword={setPassword}
+                />
+            );
 
         case 1:
-            return <UserAdressSignUpModal setActualSignUpStep={props.setActualSignUpStep} />;
+            return (
+                <UserAdressSignUpModal
+                    setActualSignUpStep={props.setActualSignUpStep}
+                    password={password}
+                    setPassword={setPassword}
+                    setSignUpModalVisible={props.setSignUpModalVisible}
+                    setLoginModalVisible={props.setLoginModalVisible}
+                />
+            );
 
         default:
             return <>ERROR: RELOAD PAGE</>;
     }
 }
 
-function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dispatch<SetStateAction<number>> }) {
+function UserInfoSignUpModal({
+    setActualSignUpStep,
+    password,
+    setPassword,
+}: {
+    setActualSignUpStep: Dispatch<SetStateAction<number>>;
+    password: string;
+    setPassword: Dispatch<SetStateAction<string>>;
+}) {
     const context = React.useContext(UserContext);
-    const [password, setPassword] = React.useState("");
 
     function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -85,34 +108,69 @@ function UserInfoSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dis
     );
 }
 
-function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: Dispatch<SetStateAction<number>> }) {
+function UserAdressSignUpModal({
+    setActualSignUpStep,
+    password,
+    setPassword,
+    setSignUpModalVisible,
+    setLoginModalVisible,
+}: {
+    setActualSignUpStep: Dispatch<SetStateAction<number>>;
+    password: string;
+    setPassword: Dispatch<SetStateAction<string>>;
+    setSignUpModalVisible: Dispatch<SetStateAction<boolean>>;
+    setLoginModalVisible: Dispatch<SetStateAction<boolean>>;
+}) {
     const context = React.useContext(UserContext);
     const router = useRouter();
     const { cache } = useSWRConfig();
-    const [cep, setCep] = React.useState('')
+    const [cep, setCep] = React.useState(context?.cep);
     const [nextButtonContent, setNextButtonContent] = React.useState<any>("Next");
-    const [disabledForm, setDisabledForm] = React.useState(true)
+    const [disabledForm, setDisabledForm] = React.useState(true);
     const [cepButtonContent, setCepButtonContent] = React.useState<any>(<SearchIcon />);
-    const { data, mutate, error } = useSWR(router.isReady ? `findcep?cep=${(context?.cep)?.replace('-', '')}` : null, fetcher, {
-        onSuccess: (data, key, config) => {
-            context?.setState(data.data.uf)
-            context?.setAddress(data.data.logradouro)
-            context?.setCity(data.data.localidade)
-            setCepButtonContent(<SearchIcon />)
-            setDisabledForm(false)
-            console.log(disabledForm)
+    const { data, mutate, error } = useSWR(
+        router.isReady ? `findcep?cep=${context?.cep?.replace("-", "")}` : null,
+        fetcher,
+        {
+            onSuccess: (data, key, config) => {
+                context?.setState(data.data.uf);
+                context?.setAddress(data.data.logradouro);
+                context?.setCity(data.data.localidade);
+                setCepButtonContent(<SearchIcon />);
+                setDisabledForm(false);
             },
-        });
+        }
+    );
 
-    function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setNextButtonContent(<CircularProgress size={15} />);
+        const data = {
+            name: context?.name,
+            email: context?.email,
+            password,
+            cep: context?.cep?.replace("-", ""),
+            city: context?.city,
+            state: context?.state,
+            address: context?.address,
+            number: context?.number,
+        };
+
+        try {
+            await postFetcher("signupUser", data).then(() => {
+                setSignUpModalVisible(false);
+                setLoginModalVisible(true);
+            });
+        } catch (e) {
+            setNextButtonContent("Try Again");
+            console.log(e);
+        }
     }
 
     function findCep(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         setCepButtonContent(<CircularProgress size={10} />);
-        context?.setCep(cep)
+        context?.setCep(cep);
     }
 
     return (
@@ -125,7 +183,7 @@ function UserAdressSignUpModal({ setActualSignUpStep }: { setActualSignUpStep: D
                     placeholder="12345-678"
                     value={cep}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCep(e.target.value)}
-                    pattern="\d{5}-\d{3}"
+                    pattern="\d{5}-?\d{3}"
                     required
                 />
                 <CepButton type="submit" variant="dark" size="small">

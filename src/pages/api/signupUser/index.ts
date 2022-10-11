@@ -10,12 +10,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { _page = 1, _limit = 5 } = req.query;
-  const { data, headers } = await externalHttp.get(
-    `restaurants?_limit=${_limit}&_page=${_page}`
+    const data = req.body
+  const response = await externalHttp.post(
+    `signup`, {...data, isMain: true}
   );
-    console.log(data)
+
   res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidate=59"); 
-  res.setHeader("X-Total-Count", headers["x-total-count"]);
-  res.status(200).json(data);
+  res.send(response.data)
 }

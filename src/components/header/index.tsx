@@ -10,12 +10,14 @@ import Modal from "react-bootstrap/Modal";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import Image from "next/image";
 
 import { GiftCardsModal } from "../modals/giftCardsModal";
 
 import { Container } from "./headerStyle";
 import { SignUpModal } from "../modals/signUpModal";
 import { LoginModal } from "../modals/loginModal/index";
+import { useRouter } from "next/router";
 
 interface Props {
     image: any;
@@ -30,6 +32,7 @@ function Header(props: Props) {
     const [signUpModalVisible, setSignUpModalVisible] = useState(false);
     const signUpSteps = [" Your Info", "Your Main Address"];
     const [actualSignUpStep, setActualSignUpStep] = useState(0);
+    const router = useRouter()
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchBoxValue(e.target.value);
     };
@@ -54,17 +57,22 @@ function Header(props: Props) {
     return (
         <>
             <Container backgroundColor={props.backgroundColor}>
-                {props.homepage ? <Lottie options={foodieLogoDefaultOptions} height={60} width={120} style={style} /> : <img src={props.image} />}
+                {props.homepage ? (
+                    <Lottie options={foodieLogoDefaultOptions} height={60} width={120} style={style} />
+                ) : (
+                    <img src={props.image} />
+                )}
                 <nav>
                     <ul>
+                        {" "}
+                        <li>
+                            <button onClick={() => router.push("/portal/login")}>Portal</button>
+                        </li>
                         <li>
                             <button onClick={() => setGiftCardModalVisible(true)}>Discount</button>
                         </li>
                         <li>
-                            <button>About Us</button>
-                        </li>
-                        <li>
-                            <button onClick={() => setSignUpModalVisible(true)}>Sign Up</button>
+                        <button onClick={() => setSignUpModalVisible(true)} >Sign Up</button>
                         </li>
                         <li>
                             <button onClick={() => setLoginModalVisible(true)}>Login</button>
@@ -111,6 +119,7 @@ function Header(props: Props) {
                     setSignUpModalVisible={setSignUpModalVisible}
                     actualSignUpStep={actualSignUpStep}
                     setActualSignUpStep={setActualSignUpStep}
+                    setLoginModalVisible={setLoginModalVisible}
                 />
             </Modal>
             <Modal show={loginModalVisible} onHide={() => setLoginModalVisible(false)} centered>

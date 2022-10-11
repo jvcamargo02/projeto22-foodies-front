@@ -9,8 +9,8 @@ interface IUserData {
     setName: Dispatch<SetStateAction<string>>;
     userId: number | undefined;
     setUserId: Dispatch<SetStateAction<number | undefined>>;
-    cep: string;
-    setCep: Dispatch<SetStateAction<string>>;
+    cep: string | undefined;
+    setCep: Dispatch<SetStateAction<string | undefined>>;
     city: string;
     setCity: Dispatch<SetStateAction<string>>;
     state: string;

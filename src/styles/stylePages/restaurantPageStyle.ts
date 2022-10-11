@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ReactFullpage from "@fullpage/react-fullpage";
 
-
 export const ContainerCentered = styled.section`
     display: flex;
     align-items: center;
@@ -18,7 +17,7 @@ export const Container = styled(ReactFullpage)`
     flex-direction: column;
     align-items: center;
     position: relative;
-
+/* 
     .highlighted-item {
         display: flex;
         justify-content: space-around;
@@ -50,9 +49,9 @@ export const Container = styled(ReactFullpage)`
             border-radius: 100%;
             object-fit: cover;
         }
-    }
+    } */
+   
 `;
-
 
 export const HighlightedItem = styled.section`
     display: flex;
@@ -106,4 +105,29 @@ export const HighlightedItem = styled.section`
         border-radius: 100%;
         object-fit: cover;
     }
+
+    @media (max-width: 800px) {
+            flex-direction: column-reverse;
+
+            .item-description {
+                max-width: 90%;
+                margin: 0 auto;
+
+                h6 {
+                    margin-top: 30px;
+                    font-size: 5vh;
+                }
+
+                .desc {
+                    font-size: 2.5vh;
+                }
+            }
+
+            img {
+                height: 30vh;
+                width: 30vh;
+                margin: 0 auto;
+            }
+        }
+
 `;
